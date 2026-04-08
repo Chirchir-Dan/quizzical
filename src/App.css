@@ -1,0 +1,23 @@
+
+.App h1 {
+  font-family: karma, sans-serif;
+  text-shadow: 0px 4px 2px rgb(212, 207, 207);
+  letter-spacing: 2px;
+  font-size: 31.25px;
+  color: #293264;
+  margin-bottom: 5px;
+}
+
+button.start-quiz-button{
+  margin-top: 30px;
+  background-color: #4D5B9E;
+  width: 193px;
+  height: 52px;
+  border-radius: 15px;
+  border: none;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
