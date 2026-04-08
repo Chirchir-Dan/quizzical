@@ -67,3 +67,8 @@ html, body {
     font-size: 10.25px;
     transition: all 0.2s ease;
 }
+.held {
+    background-color: #D6DBF5;
+    border: none;
+    color: #293264;
+}

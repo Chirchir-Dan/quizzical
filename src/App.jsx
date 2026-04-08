@@ -11,13 +11,16 @@ export default function App() {
 
     return (
       <div className="App">
-        {quizStarted ? <Quiz /> : (
-          <>
-            <h1>Quizzical</h1>
-            <p>This is a simple quiz application.</p>
-            <button onClick={() => startQuiz()} className='start-quiz-button'>Start quiz</button>
-          </>
-        )}
+        {quizStarted ? 
+          <Quiz /> 
+          
+          : (
+            <>
+              <h1>Quizzical</h1>
+              <p>This is a simple quiz application.</p>
+              <button onClick={() => startQuiz()} className='start-quiz-button'>Start quiz</button>
+            </>
+          )}
       </div>
     )
 }

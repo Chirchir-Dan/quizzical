@@ -4,6 +4,22 @@ import Question from './Question'
 
 export default function Quiz() {
     const [questions, setQuestions] = useState([])
+
+    function holdAnswer(questionId, optionId) {
+    setQuestions(prevQuestions => prevQuestions.map(question => {
+        if (question.id !== questionId) {
+            return question
+        }
+        
+        const newOptions = question.options.map(option => {
+            return option.id === optionId 
+                ? {...option, isHeld: !option.isHeld} 
+                : {...option, isHeld: false}
+        })
+        
+        return {...question, options: newOptions}
+    }))
+}
     
     useEffect(() => {
         fetch('https://opentdb.com/api.php?amount=5')
@@ -31,7 +47,11 @@ export default function Quiz() {
         <section className="quiz-container">
             {questions.length > 0 ? (
                 questions.map(question => (
-                    <Question key={question.id} data={question} />
+                    <Question
+                     key={question.id}
+                     data={question} 
+                     toggle={(optionId) => holdAnswer(question.id, optionId)}
+                    />
                 ))
             ) : (
                 <p>Loading quiz...</p>
@@ -39,3 +59,4 @@ export default function Quiz() {
         </section>
     )
 }
+
