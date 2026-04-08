@@ -13,7 +13,7 @@ html, body {
   align-items: center;
 }
 
-.App {
+.App, .home {
   aspect-ratio: 1/1;
   width: 100%;
   max-width: 90vw;
@@ -25,9 +25,28 @@ html, body {
   border-radius: 10px;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 40px;
+  overflow-y: auto;
+  align-items: center;
+  padding-bottom: 40px;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
- 
+
+}
+
+.home h1 {
+  font-family: karla, sans-serif;
+  text-shadow: 0px 4px 2px rgb(212, 207, 207);
+  letter-spacing: 2px;
+  font-size: 31.25px;
+  color: #293264;
+  margin-bottom: 5px;
 }
 
 
@@ -93,7 +112,7 @@ html, body {
   
   font-family: Inter, sans-serif;
   font-size: 10.25px;
-  font: semibold;
+  font-weight: semibold;
   cursor: pointer;
 }
 
