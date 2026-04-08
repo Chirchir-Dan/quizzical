@@ -13,7 +13,7 @@ export default function App() {
       <div className="home">
         {quizStarted ? 
           <>
-            <Quiz /> 
+            <Quiz goToStart={()=> setQuizStarted(false)}/> 
           </>
           : (
             <>

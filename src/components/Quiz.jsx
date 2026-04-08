@@ -2,12 +2,19 @@ import {useState, useEffect} from 'react'
 import he from 'he'
 import Question from './Question'
 
-export default function Quiz() {
+
+export default function Quiz(props) {
     const [questions, setQuestions] = useState([])
     const [showResults, setShowResults] = useState(false)
+    const [count, setCount] = useState(0)
 
     function checkAnswers() {
         setShowResults(true)
+    }
+    
+    function playAgain() {
+        setShowResults(false)
+        setCount(prevCount => prevCount + 1)
     }
 
     const correctAnswersCount = questions.filter(question => {
@@ -51,9 +58,13 @@ export default function Quiz() {
                 })
                 setQuestions(formattedQuestions)
             })
-    }, [])
+            .catch(error => console.error('Error fetching quiz data:', error))
+    }, [count])
     return (
         <section className="quiz-container">
+           <button  className="quit-game-btn" onClick={props.goToStart}>
+                ← Quit Game
+           </button>
             {questions.length > 0 ? (
                 <>
                     {questions.map(question => (
@@ -69,7 +80,7 @@ export default function Quiz() {
                                 <div className='result'>
                                     <span>You scored {correctAnswersCount}/{questions.length} correct answers</span>
                                     <button
-                                        onClick={() => window.location.reload()}
+                                        onClick={() => playAgain()}
                                         className='play-again-btn'
                                     >
                                         Play again

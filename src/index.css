@@ -155,3 +155,26 @@ html, body {
     font-size: 12.8px;
     font-weight: bold;
 }
+
+.quit-game-btn {
+    background: none;
+    border: none;
+    color: #4D5B9E;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+ 
+    margin-left: 10%; 
+    margin-bottom: 30px; 
+
+    display: block;
+    text-align: left;
+    width: fit-content;
+}
+
+.quit-game-btn:hover {
+    color: #293264;
+    text-decoration: underline;
+}
+  
