@@ -1,12 +1,17 @@
 import {useState, useEffect} from 'react'
 import he from 'he'
 import Question from './Question'
+import Confetti from 'react-confetti'
+import { useWindowSize } from 'react-use'
 
 
 export default function Quiz(props) {
     const [questions, setQuestions] = useState([])
     const [showResults, setShowResults] = useState(false)
     const [count, setCount] = useState(0)
+
+    const { width, height } = useWindowSize()
+    const isPerfectScore = questions.length > 0 && questions.every(question => question.options.some(option => option.isHeld && option.text === question.correctAnswer))
 
     function checkAnswers() {
         setShowResults(true)
@@ -62,6 +67,7 @@ export default function Quiz(props) {
     }, [count])
     return (
         <section className="quiz-container">
+            {isPerfectScore && <Confetti width={width} height={height} recycle={false} numberOfPieces={500}/>}    
            <button  className="quit-game-btn" onClick={props.goToStart}>
                 ← Quit Game
            </button>
