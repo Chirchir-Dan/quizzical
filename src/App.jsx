@@ -12,8 +12,9 @@ export default function App() {
     return (
       <div className="App">
         {quizStarted ? 
-          <Quiz /> 
-          
+          <>
+            <Quiz /> 
+          </>
           : (
             <>
               <h1>Quizzical</h1>

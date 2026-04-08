@@ -4,6 +4,15 @@ import Question from './Question'
 
 export default function Quiz() {
     const [questions, setQuestions] = useState([])
+    const [showResults, setShowResults] = useState(false)
+
+    function checkAnswers() {
+        setShowResults(true)
+    }
+
+    const correctAnswersCount = questions.filter(question => {
+        return question.options.some(option => option.isHeld && option.text === question.correctAnswer)
+    }).length
 
     function holdAnswer(questionId, optionId) {
     setQuestions(prevQuestions => prevQuestions.map(question => {
@@ -46,13 +55,37 @@ export default function Quiz() {
     return (
         <section className="quiz-container">
             {questions.length > 0 ? (
-                questions.map(question => (
-                    <Question
-                     key={question.id}
-                     data={question} 
-                     toggle={(optionId) => holdAnswer(question.id, optionId)}
-                    />
-                ))
+                <>
+                    {questions.map(question => (
+                        <Question
+                            key={question.id}
+                            data={question} 
+                            toggle={(optionId) => holdAnswer(question.id, optionId)}
+                            showResults={showResults}
+                        />
+                    ))}
+                    <div className='quiz-footer'>
+                        {showResults? (
+                                <div className='result'>
+                                    <span>You scored {correctAnswersCount}/{questions.length} correct answers</span>
+                                    <button
+                                        onClick={() => window.location.reload()}
+                                        className='play-again-btn'
+                                    >
+                                        Play again
+                                    </button>
+                                </div>
+                            ) : (
+                                <button
+                                    onClick={checkAnswers}
+                                    className='check-answers-btn'
+                                >
+                                    Check answers
+                                </button>
+                            )
+                        }
+                    </div>
+                </>
             ) : (
                 <p>Loading quiz...</p>
             )}
