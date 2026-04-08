@@ -5,38 +5,35 @@
 }
 
 html, body {
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   background-color: #000000;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  overflow-y: auto;
 }
 
 .App, .home {
-  aspect-ratio: 1/1;
-  width: 100%;
-  max-width: 90vw;
+  width: 90vw;
+  max-width: 550px;
   min-height: 550px;
-  max-height: 90vh;
-  height: 100%;
-
   background-color: #ffffff;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  padding-top: 40px;
-  overflow-y: auto;
-  align-items: center;
-  padding-bottom: 40px;
+  align-items: flex-start;
+  padding: 40px 0;
+  height: auto;           
+  max-height: none;      
+  aspect-ratio: auto;   
+  margin: 40px auto;    
 }
-
 .home {
-  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 
 }
 
