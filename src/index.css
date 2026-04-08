@@ -12,6 +12,14 @@ html, body {
   justify-content: center;
   align-items: flex-start;
   overflow-y: auto;
+  /* Hide scrollbar for Chrome, Brave Safari and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */  
 }
 
 .App, .home {
@@ -27,8 +35,10 @@ html, body {
   height: auto;           
   max-height: none;      
   aspect-ratio: auto;   
-  margin: 40px auto;    
+  margin: 40px auto;  
+  
 }
+
 .home {
   flex-direction: column;
   justify-content: center;
